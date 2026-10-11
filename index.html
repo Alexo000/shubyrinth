@@ -1,5 +1,102 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>Shubyrinth</title>
-<meta http-equiv="refresh" content="0; url=shubyrinth.html">
-<link rel="canonical" href="shubyrinth.html"></head>
-<body><p><a href="shubyrinth.html">Shubyrinth</a></p></body></html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shubyrinth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=VT323&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1><button id="titleBtn" class="titlebtn" aria-label="About Shubyrinth">Shubyrinth</button></h1>
+    <div class="pop">
+      <button id="questBtn" class="questBtn" aria-haspopup="true" aria-expanded="false"><span id="questName"></span><span aria-hidden="true"> ▾</span></button>
+      <div id="questMenu" class="menu" role="menu" hidden>
+        <p class="menuhead" id="questHead">Labyrinths</p>
+        <button id="q0" role="menuitemradio" aria-pressed="true">Quest 1</button>
+        <button id="q1" role="menuitemradio" aria-pressed="false">Quest 2</button>
+        <button id="q2" role="menuitemradio" aria-pressed="false">Quest 3</button>
+      </div>
+    </div>
+    <div class="pop end">
+      <button id="menuBtn" class="menuBtn" aria-haspopup="true" aria-expanded="false" aria-label="Menu"><span aria-hidden="true">≡</span></button>
+      <div id="menu" class="menu right" role="menu" hidden>
+        <button id="mRecord" class="phoneOnly"><span id="mRecordL">Trail</span></button>
+        <button id="mAbout"><span id="mAboutL">About</span></button>
+        <a id="mFeedback" class="menulink" href="#" target="_blank" rel="noopener" hidden><span id="mFeedbackL">How did it go?</span></a>
+        <button id="mLang"><span id="mLangL">Español</span></button>
+        <button id="mSound"><span id="mSoundL">Sound: on</span></button>
+        <button id="wReset"><span id="wResetL">Start again</span><small id="wResetS"></small></button>
+        <button id="seed"><span id="seedL">New labyrinth</span><small id="seedS"></small></button>
+        <button id="mFresh"><span id="mFreshL">Clear for the next person</span><small id="mFreshS"></small></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="sheet">
+      <nav class="views" aria-label="View">
+        <button id="v_plan" aria-pressed="true">Plan</button>
+        <button id="v_walk" aria-pressed="false">Walk</button>
+        <button id="v_door" aria-pressed="false">Doorway</button>
+      </nav>
+      <div class="stage">
+        <div id="maps" class="maps"></div>
+        <p id="note" class="note" aria-live="polite" hidden></p>
+        <button id="doHere" class="doHere" hidden></button>
+        <div class="zoom" id="zoom" hidden><button id="zIn" aria-label="Zoom in">+</button><button id="zOut" aria-label="Zoom out">−</button></div>
+      </div>
+      <div id="hud" class="hud" hidden>
+        <div class="pad" role="group" aria-label="Walk">
+          <button id="wUp" aria-label="Walk north">↑</button><button id="wLeft" aria-label="Walk west">←</button><button id="wRight" aria-label="Walk east">→</button><button id="wDown" aria-label="Walk south">↓</button>
+        </div>
+        <div class="hudtext"><p id="hudTwist" class="twist" hidden></p><p id="hudMsg"></p></div>
+      </div>
+    </div>
+    <aside id="aside">
+      <button id="asideClose" class="phoneOnly asideClose">← <span id="asideCloseL">Back to the labyrinth</span></button>
+      <section class="card" aria-live="polite">
+        <h2 id="detailTitle">Here</h2>
+        <div id="detail"></div>
+      </section>
+      <section class="card">
+        <h2 id="recordTitle">Trail</h2>
+        <p class="stats" id="recordStats"></p>
+        <button id="recordDoc" class="docBtn">Open your trail</button>
+        <button id="recordSave" class="quiet" hidden>Save my answers</button>
+        <ol class="record" id="record"></ol>
+      </section>
+    </aside>
+  </div>
+  <p class="foot" id="footL"></p>
+</div>
+
+<div id="doc" class="doc" hidden>
+  <div class="docbar"><button id="docClose">← <span id="docCloseL">Back to the labyrinth</span></button><button id="docPrint">Print, or save as PDF</button></div>
+  <article class="docsheet" id="docBody"></article>
+</div>
+
+<div id="welcome" class="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle" hidden>
+  <div class="wbox">
+    <h1 id="wTitle">Shubyrinth</h1>
+    <p class="lede" id="wLede"></p>
+    <ol class="steps" id="wSteps"></ol>
+    <div id="wBody"></div>
+    <p class="how" id="wHow"></p>
+    <p class="how trailline" id="wTrail"></p>
+    <div class="wquests">
+      <button id="wq0"><span>Quest 1</span><small id="wq0n"></small></button>
+      <button id="wq1"><span>Quest 2</span><small id="wq1n"></small></button>
+      <button id="wq2"><span>Quest 3</span><small id="wq2n"></small></button>
+    </div>
+    <p class="wback" id="wBack"></p>
+    <button id="wLang" class="quiet wlang"></button>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
